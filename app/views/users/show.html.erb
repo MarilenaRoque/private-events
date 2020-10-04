@@ -1,0 +1,31 @@
+<div class=row>
+
+  <div class="col">
+
+    <h2>User Data:</h2>
+
+    <label>Name: </label>
+    <p><%= @user.name %></p>
+
+  </div>
+
+  <div class="col-4">
+    <p>Attendance List</p>
+    <p>Upcoming</p>
+    <ul class="list-group">
+      <% @user.attended_events.upcoming.each do |event| %>
+        <li class="list-group-item"><%= event.title %></li>
+      <% end %>
+    </ul>
+    <p>Previous</p>
+    <ul class="list-group">
+    <% @user.attended_events.previous.each do |event| %>
+      <li class="list-group-item"><%= event.title %></li>
+    <% end %>
+
+    </ul>
+    
+    
+  </div>
+  
+</div>

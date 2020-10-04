@@ -1,0 +1,69 @@
+
+<div class="card" id="upcoming-events">
+  <div class="card-header">
+    Upcoming Events
+  </div>
+  <div class="card-body p-0">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    
+      <% @events.upcoming.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= event.date %></td>
+          <td><%= event.local %></td>
+          <td><%= event.description %></td>
+          <td><%= link_to 'Show', event %></td>
+          <td><%= link_to "Attend", event_event_attendings_path(event.id), method: :post, class: "#{display_attendee(event)}"%><%= image_tag("carraca.svg", class: "#{display_check(event)} event-attendance", size: "20x20" ) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<hr>
+
+<div class="card" id="past-events">
+  <div class="card-header">
+    Past Events
+  </div>
+  <div class="card-body p-0">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    
+      <% @events.previous.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= event.date %></td>
+          <td><%= event.local %></td>
+          <td><%= event.description %></td>
+          <td><%= link_to 'Show', event %></td>
+          <td></td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
